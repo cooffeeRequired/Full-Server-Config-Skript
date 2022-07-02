@@ -1,10 +1,21 @@
 # Cache objects
 packer_cache/
-Server/*
-Server/
+Server/cache
+Server/config
 
 # Crash log
 crash.log
+Server/deve
+Server/deve_*
+Server/l*
+Server/v*
 
 # For built boxes
 *.box
+Server/*.json
+Server/*.yml
+Server/*.txt
+Server/*.prope*
+
+# plugins
+Server/Plugins/bStats
