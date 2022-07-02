@@ -1,5 +1,7 @@
 # Cache objects
 packer_cache/
+Server/*
+Server/
 
 # Crash log
 crash.log
