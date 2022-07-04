@@ -56,7 +56,7 @@ release channel: none
 # 'beta' and 'alpha' mean that also development releases will be checked for.
 # Initial value of this depends on the Skript version you first installed; it was 'none'.
 
-enable effect commands: false
+enable effect commands: true
 effect command token: !
 # If 'enable effect commands' is set to true, chat messages starting with the 'effect command token' will be interpreted as effects and executed.
 # The token can be longer than a single character, but it should not start with '/' as that starts a command.
@@ -72,7 +72,7 @@ effect command token: !
 #	!create explosion of force 10000 - likely crashes the server or at least hangs it up for a long time
 #	!ban all players - as the effect implies
 
-allow ops to use effect commands: false
+allow ops to use effect commands: true
 # Whether server operators which do not have the permission "skript.effectcommands" should have access to effect commands.
 # This setting is mainly useful for servers that do not run any permissions plugin.
 

@@ -1,0 +1,30 @@
+
+# ------------------ Header ------------------ 
+# Author: _FOcus__ (@coffee required | production) 
+# Date: 2022-07-02 23:01:21 
+ 
+# Last Modified by:   _FOcus__ (@coffee required | production) 
+# Last Modified time: 2022-07-02 23:01:21 
+#
+ 
+# ------------------------------------------- 
+
+# commands
+# Sending custom logger messages
+
+
+command cls:
+    trigger:
+        send "%nl% %nl% %nl% %nl% %nl% %nl% %nl% %nl% %nl% %nl%== == CLEARING == ==%nl% %nl% %nl% %nl% %nl% %nl% %nl% %nl% %nl% %nl%" to console
+
+
+command ./start:
+    trigger:
+        set {-i} to ""
+
+command build-in [<string>]:
+    trigger:
+        set {_arg} to arg-1
+        replace all "Server\plugins\Skript\scripts\" with "" in {_arg}
+        reload script {_arg}
+        send "&bSkript&7 was reloaded ""&6%{_arg}%"" " to console

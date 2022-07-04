@@ -1,0 +1,134 @@
+import:
+    java.io.File
+
+options: 
+    instance: "plugins/SvC/config.yml"
+    ymlOpen:  load yml "plugins/SvC/config.yml" as "svc"
+    rewrite-basic-methods: yml value "rewrite-basic-methods" of "svc"
+
+function createFileConfig():
+    loop ...(new File("plugins/SvC").listFiles()):
+        loop-value.getName() = "config.yml":
+            send "&e! File &7 ""config.yml"" already exist! -> &aLoaded" to console
+            stop
+    {@ymlOpen}
+    send "&e! File &7 ""config.yml"" &cnot &7 exist! -> &eCreating" to console
+    add "##     _______                                   _______ __     __             ______               ___ __        " to {_T::*}
+    add "##    |     __|.-----.----.--.--.-----.----.    |     __|__|.--|  |.-----.    |      |.-----.-----.'  _|__|.-----." to {_T::*}
+    add "##    |__     ||  -__|   _|  |  |  -__|   _|    |__     |  ||  _  ||  -__|    |   ---||  _  |     |   _|  ||  _  |" to {_T::*}
+    add "##    |_______||_____|__|  \___/|_____|__|      |_______|__||_____||_____|    |______||_____|__|__|__| |__||___  |" to {_T::*}
+    add "##                                                                                                         |_____| " to {_T::*}
+    add " " to {_T::*}
+    add "" to {_T::*}
+    add "" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "##" to {_T::*}
+    add "##            XCore Function" to {_T::*}
+    add "##" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "  rewrite-basic-methods: false" to {_T::*}
+    add "  permission: false" to {_T::*}
+    add "  version: 'default'" to {_T::*}
+    add "  core: 'X1C'" to {_T::*}
+    add "" to {_T::*}
+    add "" to {_T::*}
+    add "" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "##" to {_T::*}
+    add "##             Custom Motd" to {_T::*}
+    add "##" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "" to {_T::*}
+    add "  custom-motd: false" to {_T::*}
+    add "  motd-message: ''" to {_T::*}
+    add "  motd-refresh-time: 10 ##in seconds" to {_T::*}
+    add "  motd-command: 'null'" to {_T::*}
+    add "  motd-permission: 'svc.motd.*'" to {_T::*}
+    add "" to {_T::*}
+    add "  motd-groups:" to {_T::*}
+    add "    admin:" to {_T::*}
+    add "      permission: 'svc.group.admin'" to {_T::*}
+    add "      motd: 'Welcome back %%1'" to {_T::*}
+    add "      prefix: '&c'" to {_T::*}
+    add "" to {_T::*}
+    add "    default:" to {_T::*}
+    add "      permission: 'svc.group.default'" to {_T::*}
+    add "      motd: 'Welcome back %%1'" to {_T::*}
+    add "      prefix: '&7'" to {_T::*}
+    add "" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "##" to {_T::*}
+    add "##         Custom Server Icon" to {_T::*}
+    add "##" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "" to {_T::*}
+    add "  custom-icon: false" to {_T::*}
+    add "  icon-permissions: 'svc.icon.*'" to {_T::*}
+    add "  icons_mode: 'single'" to {_T::*}
+    add "  " to {_T::*}
+    add "  ## single mode" to {_T::*}
+    add "  icon: 'server_icon.png'" to {_T::*}
+    add "  icon-refresh: 0" to {_T::*}
+    add "" to {_T::*}
+    add "  ## multiple mode" to {_T::*}
+    add "  icon-mm-refresh: 20" to {_T::*}
+    add "  icon-mm-randomGen: 2" to {_T::*}
+    add "  icon-motd-groups-allow: false" to {_T::*}
+    add "  icon-motd-groups: []" to {_T::*}
+    add "" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "##" to {_T::*}
+    add "##           Custom Permissions" to {_T::*}
+    add "##" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "" to {_T::*}
+    add "  permission-system: false" to {_T::*}
+    add "  vsc-perm:" to {_T::*}
+    add "    admin: " to {_T::*}
+    add "      id: 1" to {_T::*}
+    add "      prefix: '&r'" to {_T::*}
+    add "      suffix: '&r'" to {_T::*}
+    add "      permissions: [" to {_T::*}
+    add "        vsc.icon.*" to {_T::*}
+    add "        vsc.home.*" to {_T::*}
+    add "      ]" to {_T::*}
+    add "" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "##" to {_T::*}
+    add "##           Custom Join/Quit" to {_T::*}
+    add "##" to {_T::*}
+    add "## ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" to {_T::*}
+    add "  custom-join-quit: false" to {_T::*}
+    add "  custom-join-quit-permissions: 'svc.joinquit.*'" to {_T::*}
+    add "" to {_T::*}
+    add "  custom-join-message: ''" to {_T::*}
+    add "  custom-quit-message: ''" to {_T::*}
+    add "  custom-newbie-message: ''" to {_T::*}
+
+    loop {_T::*}:
+        wait 2 ticks
+        write loop-value at line (loop-index parsed as integer) to file {@instance}
+        send "&e! File &7 node's of ""config.yml"" &7%loop-index%&8/&6%(size of {_T::*})%" to console if mod((loop-index parsed as integer),5) = 0
+    send "&e! File &7 ""config.yml"" &eCreated &aSuccessfully -> &aWork &8[ Done ]" to console   
+
+
+function getConfig(config: string = "none", conf: integer = 0) :: object:
+    {@ymlOpen}
+    {_conf} = 1: # Used for fn
+        set {_result} to yml value {_config} of "svc"
+        set {_o} to "&a%{_result}%" if "%{_result}%" is "true", else "&e%{_result}%"
+        set {_out} to "&c%{_result}%" if "%{_result}%" is "false", else {_o}
+        return {_out}
+    else:
+        {_config} is "none":
+            set {_list::*} to all yaml nodes of "svc"
+            loop {_list::*}:
+                set {_result} to yml value loop-value of "svc"
+                set {_o} to "&a%{_result}%" if "%{_result}%" is "true", else "&f%{_result}%"
+                set {_out} to "&c%{_result}%" if "%{_result}%" is "false", else {_o}
+                send "&e! Node: &7%{_list::%loop-index%}%: %{_out}%" to console
+        else:
+            set {_result} to yml value {_config} of "svc"
+            set {_o} to "&a%{_result}%" if "%{_result}%" is "true", else "&e%{_result}%"
+            set {_out} to "&c%{_result}%" if "%{_result}%" is "false", else {_o}
+            send "&e! &8Current&r -> Node: &7%{_config}%: %{_out}%" to console

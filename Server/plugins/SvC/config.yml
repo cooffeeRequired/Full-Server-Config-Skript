@@ -1,0 +1,91 @@
+#     _______                                   _______ __     __             ______               ___ __        
+#    |     __|.-----.----.--.--.-----.----.    |     __|__|.--|  |.-----.    |      |.-----.-----.'  _|__|.-----.
+#    |__     ||  -__|   _|  |  |  -__|   _|    |__     |  ||  _  ||  -__|    |   ---||  _  |     |   _|  ||  _  |
+#    |_______||_____|__|  \___/|_____|__|      |_______|__||_____||_____|    |______||_____|__|__|__| |__||___  |
+#                                                                                                         |_____| 
+ 
+
+
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+#
+#            XCore Function
+#
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+  rewrite-basic-methods: true
+  permission: true
+  version: 'default'
+  core: 'X1C'
+
+
+
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+#
+#             Custom Motd
+#
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+  custom-motd: false
+  motd-message: ''
+  motd-refresh-time: 10 #in seconds
+  motd-command: 'null'
+  motd-permission: 'svc.motd.*'
+
+  motd-groups:
+    admin:
+      permission: 'svc.group.admin'
+      motd: 'Welcome back %1'
+      prefix: ''
+
+    default:
+      permission: 'svc.group.default'
+      motd: 'Welcome back %1'
+      prefix: ''
+
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+#
+#         Custom Server Icon
+#
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+  custom-icon: true
+  icon-permissions: 'svc.icon.*'
+  icons-mode: 'single'
+  
+  # single mode
+  icon: 'server-icon.png'
+  icon-refresh: 0
+
+  # multiple mode
+  icon-mm-refresh: 20
+  icon-mm-randomGen: 2
+  icon-motd-groups-allow: false
+  icon-motd-groups: []
+
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+#
+#           Custom Permissions
+#
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+  permission-system: false
+  vsc-perm:
+    admin: 
+      id: 1
+      prefix: ''
+      suffix: ''
+      permissions: [
+        vsc.icon.*
+        vsc.home.*
+      ]
+
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+#
+#           Custom Join/Quit
+#
+# ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+  custom-join-quit: false
+  custom-join-quit-permissions: 'svc.joinquit.*'
+
+  custom-join-message: ''
+  custom-quit-message: ''
+  custom-newbie-message: ''

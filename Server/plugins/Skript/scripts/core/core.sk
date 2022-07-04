@@ -1,0 +1,73 @@
+import:
+    java.io.File
+options:
+    server: server.getServer()
+
+function SvCmainArt():
+    send "&l<##0cde78>              <##04e8e8>           <##0cde78>            " to console
+    send "&l<##0cde78>   .--.--.    <##04e8e8>           <##0cde78>  ,----..   " to console
+    send "&l<##0cde78>  /  /    '.  <##04e8e8>           <##0cde78> /   /   \  " to console
+    send "&l<##0cde78> |  :  /`. /  <##04e8e8>           <##0cde78>|   :     : " to console
+    send "&l<##0cde78> ;  |  |--`   <##04e8e8>     .---. <##0cde78>.   |  ;. / " to console
+    send "&l<##0cde78> |  :  ;_     <##04e8e8>   /.  ./| <##0cde78>.   ; /--`  " to console
+    send "&l<##0cde78>  \  \    `.  <##04e8e8> .-' . ' | <##0cde78>;   | ;     " to console
+    send "&l<##0cde78>   `----.   \ <##04e8e8>/___/ \: | <##0cde78>|   : |     " to console
+    send "&l<##0cde78>   __ \  \  | <##04e8e8>.   \  ' . <##0cde78>.   | '___  " to console
+    send "&l<##0cde78>  /  /`--'  / <##04e8e8> \   \   ' <##0cde78>'   ; : .'| " to console
+    send "&l<##0cde78> '--'.     /  <##04e8e8>  \   \    <##0cde78>'   | '/  : " to console
+    send "&l<##0cde78>   `--'---'   <##04e8e8>   \   \ | <##0cde78>|   :    /  " to console
+    send "&l<##0cde78>              <##04e8e8>    '---""  <##0cde78> \   \ .'   " to console
+    send "&l<##0cde78>              <##04e8e8>           <##0cde78>  `---`     " to console
+    send "&l  " to console
+    send "&l      &7&lServer Config &aEnabled" to console
+    send "&l" to console 
+
+function SvCmain():
+    SvCmainArt()
+    load yml "plugins/SvC/config.yml" as "svc"
+    send "            &8&l[ &a&lCore &8&l] " to console
+    send "" to console
+    send "         &8Version %getConfig("version",1)%" to console    
+    send "    &8Changed basic method %getConfig("rewrite-basic-methods",1)%" to console
+    send "     &8Changed permission %getConfig("permission",1)%" to console
+    send "          &8core mode %getConfig("core",1)%" to console
+    send "" to console
+
+    send "          &8&l[ &a&lModules &8&l] " to console
+    send "" to console
+    send "         &8Motd %getConfig("custom-motd",1)%" to console    
+    send "      &8Server Icon %getConfig("custom-icon",1)%" to console if getConfig("custom-icon",1) = "&cfalse"
+    send "      &8Server Icon %getConfig("custom-icon",1)% &8[ loaded: &b%size of {-icons::*}%&8]" to console if getConfig("custom-icon",1) = "&atrue"
+    send "      &8Permissions %getConfig("permission-system",1)%" to console
+    send "       &8Join/Quit %getConfig("custom-join-quit",1)%" to console
+    send "" to console
+    send "" to console
+    send "&7&l for more infromations about modules, execute &e/svc modules" to console
+    svcServerIcon()
+
+
+
+function svcServerIcon():
+    getConfig("custom-icon",1) = "&atrue":
+        delete {-icons::*}
+        getConfig("icons-mode",1) = "&emultiple":
+            loop ...(new File("plugins/SvC/icons").listFiles()):
+                delete {_icon}
+                set {_icon} to try {@server}.loadServerIcon(loop-value)
+                if exception is set:
+                    {@server}.getLogger().warning("Failed to load icon %loop-value%: %exception%")
+                    continue
+                set {-icons::%loop-value.getName()%} to {_icon}
+
+
+on load:
+    SvCmain()
+
+on server list ping:
+    getConfig("custom-icon",1) = "&atrue":   
+        #event.setMotd(random uuid)
+        getConfig("icons-mode",1) = "&esingle":
+            set {_icon} to try {@server}.loadServerIcon(new File(uncolored "plugins/SvC/icons/%getConfig("icon",1)%"))
+        else:
+            set {_icon} to random object of {-icons::*}
+        event.setServerIcon({_icon})
